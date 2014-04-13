@@ -3,56 +3,56 @@
 var size=100;
 var N=8;
 Game();
-	function Game()
+function Game()
+{
+	try
 	{
-		try
-		{
-		document.body.innerHTML="";
-		}
-		catch(e) {;}		
-		if (isFinite (N)==true)
-		{
-			document.write("<center><table border ='15'>");
-			for (var i=0;i<N;i++)
-			{
-				document.write("<tr>");
-					for (var j=0;j<N;j++)
-					{
-						if(i==0 || i==1 || i==6 || i==7)
-						{
-							document.write("<td height='"+size+"' width='"+size+"' x="+j+" y="+i+" free='no' ></td>");
-						}
-						else
-						{
-							document.write("<td height='"+size+"' width='"+size+"' x="+j+" y="+i+" free='yes'></td>");
-						}	
-					}		
-				document.write("</tr>");
-			}
-			document.write("</table>");
-		}
-		color();
-		Figures();
+	document.body.innerHTML="";
 	}
-	function color()
+	catch(e) {;}		
+	if (isFinite (N) == true)
 	{
-		var k=0;
-		var color = ["grey", "white"];
-		for (var i=0;i<N;i++)
+		document.write("<center><table border ='15'>");
+		for (var i = 0; i < N; i++)
 		{
-			for (var j=0;j<N;j++)
+			document.write("<tr>");
+			for (var j = 0; j < N ; j++)
 			{
-				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor",color[k])
-				switch (k)
+				if(i == 0 || i == 1 || i == 6 || i == 7)
 				{
-					case 0 : if(j==N-1 )break; k++;break;
-					case 1 : if(j==N-1 )break;k--;break;
-				}						
-			}
+					document.write("<td height='"+size+"' width='"+size+"' x="+j+" y="+i+" free='no' ></td>");
+				}
+				else
+				{
+					document.write("<td height='"+size+"' width='"+size+"' x="+j+" y="+i+" free='yes'></td>");
+				}	
+			}		
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	color();
+	Figures();
+}
+function color()
+{
+	var k=0;
+	var color = ["grey", "white"];
+	for (var i = 0; i < N; i++)
+	{
+		for (var j = 0; j < N; j++)
+		{
+			$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor",color[k])
+			switch (k)
+			{
+				case 0 : if(j==N-1 )break; k++;break;
+				case 1 : if(j==N-1 )break;k--;break;
+			}						
 		}
 	}
-	function Figures()
-	{
+}
+function Figures()
+{
 	size=size-5;
 	$("td[x='0']*[y='0']").append("<img src='bl.png' height='"+size+"' width='"+size+"' x='0' y='0' name='ladya' position='up' color='black'>  ");
 	$("td[x='1']*[y='0']").append("<img src='bh.png' height='"+size+"' width='"+size+"' x='1' y='0' name='horse' position='up' color='black'> ");
@@ -62,10 +62,10 @@ Game();
 	$("td[x='5']*[y='0']").append("<img src='bs.png' height='"+size+"' width='"+size+"' x='5' y='0' name='ferz' position='up' color='black'> ");		
 	$("td[x='6']*[y='0']").append("<img src='bh.png' height='"+size+"' width='"+size+"' x='6' y='0' name='horse' position='up' color='black'> ");
 	$("td[x='7']*[y='0']").append("<img src='bl.png' height='"+size+"' width='"+size+"' x='7' y='0' name='ladya' position='up' color='black'> ");
-	 for(var i=0;i<N;i++)
-	  {
-	   $("td[x='"+i+"']*[y='1']").append("<img src='bpe.png' height='"+size+"' width='"+size+"' x='"+i+"' y='1' name='peshka' position='up' color='black'> ");
-	  }	 
+ 	for(var i=0;i<N;i++)
+	{
+   		$("td[x='"+i+"']*[y='1']").append("<img src='bpe.png' height='"+size+"' width='"+size+"' x='"+i+"' y='1' name='peshka' position='up' color='black'> ");
+  	}	 
 	$("td[x='0']*[y='7']").append("<img src='wl.png' height='"+size+"' width='"+size+"' x='0' y='7' name='ladya' position='down' color='white'> ");
 	$("td[x='1']*[y='7']").append("<img src='wh.png' height='"+size+"' width='"+size+"' x='1' y='7' name='horse' position='down' color='white'> ");
 	$("td[x='2']*[y='7']").append("<img src='ws.png' height='"+size+"' width='"+size+"' x='2' y='7' name='ferz' position='down' color='white'> ");
@@ -74,277 +74,248 @@ Game();
 	$("td[x='5']*[y='7']").append("<img src='ws.png' height='"+size+"' width='"+size+"' x='5' y='7' name='ferz' position='down' color='white'> ");		
 	$("td[x='6']*[y='7']").append("<img src='wh.png' height='"+size+"' width='"+size+"' x='6' y='7' name='horse' position='down' color='white'> ");
 	$("td[x='7']*[y='7']").append("<img src='wl.png' height='"+size+"' width='"+size+"' x='7' y='7' name='ladya' position='down' color='white'> ");
-     for(var i=0;i<N;i++)
-      {
-	    $("td[x='"+i+"']*[y='6']").append("<img src='wpe.png' height='"+size+"' width='"+size+"' x='"+i+"' y='6' name='peshka' position='down' color='white'> ");
-	  }
-		 size=size+5;
-	}
-	var count=0;
-	var x;
-	var X;
-	var Y;
-	var y;
-	var x1;
-	var y1;
-	var yy;
-	var name;
-	var xx;
-	var step=
+	for(var i = 0; i < N; i++)
 	{
-		0:"white",
-		1:"black"
+   		$("td[x='"+i+"']*[y='6']").append("<img src='wpe.png' height='"+size+"' width='"+size+"' x='"+i+"' y='6' name='peshka' position='down' color='white'> ");
 	}
-	$("td").click(function () 
+	size=size+5;
+}
+var count=0;
+var x;
+var X;
+var Y;
+var y;
+var x1;
+var y1;
+var yy;
+var name;
+var xx;
+var step=
+{
+	0:"white",
+	1:"black"
+}
+$("td").click(function () 
+{
+	count++;
+	if(count == 1)
 	{
-		count++;
-		
-		if(count==1)
-		{
-			if($(this).attr("free")=="no"  )
-			{	
-				x=$(this).attr("x");
-				X=x;
-				y=$(this).attr("y");
-				Y=y;
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")==step[0])
+		if($(this).attr("free")=="no"  )
+		{	
+			x=$(this).attr("x");
+			X=x;
+			y=$(this).attr("y");
+			Y=y;
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")==step[0])
+			{
+				$(this).attr("bgcolor","#00FF00");
+				name=$("img[x='"+x+"']*[y='"+y+"']").attr("name");
+				if( name == "peshka" )
 				{
-					$(this).attr("bgcolor","#00FF00");
-					name=$("img[x='"+x+"']*[y='"+y+"']").attr("name");
-					if(name=="peshka")
-					{
-						peshkastep();
-						
-					}
-					if(name=="ladya")
-					{
-						ladyastep();
-					}
-					if(name=="horse")
-					{
-						horsestep();
-					}
-					if(name=="ferz")
-					{
-						ferzstep();
-					}
-					if(name=="queen")
-					{
-						queenstep();
-					}
-					if(name=="king")
-					{
-					
-						kingstep();
-					}
+					peshkastep();
 				}
-				else
+				if( name == "ladya" )
 				{
-					count=0;
+					ladyastep();
+				}
+				if( name == "horse" )
+				{
+					horsestep();
+				}
+				if( name == "ferz" )
+				{
+					ferzstep();
+				}
+				if( name == "queen" )
+				{
+					queenstep();
+				}
+				if( name == "king" )
+				{
+					kingstep();
 				}
 			}
 			else
-			 {
-				count=0; 
-			 }
-		}
-		else if(count==2)
-		{
-			var fl=false;
-			x1=$(this).attr("x");
-			y1=$(this).attr("y");
-			if($("td[x='"+x1+"']*[y='"+y1+"']").attr("bgcolor")=="#FF0000")
 			{
-				
-				
-				$("img[x='"+x+"']*[y='"+y+"']").appendTo("td[x='"+x1+"']*[y='"+y1+"']").attr("x",x1).attr("y",y1);
-				$("td[x='"+x+"']*[y='"+y+"']").attr("free","yes");
-				$("td[x='"+x1+"']*[y='"+y1+"']").attr("free","no");
-				color();
-				if(step[0]=="black")
-				{
-					step[0]="white";
-					step[1]="black";
-				}
-				else
-				{
-					step[1]="white";
-					step[0]="black";
-				}
-				
-			}	
-			
-			else
-			{
-			alert("Неверный ход");
-			}	
-				color();
 				count=0;
-		}
-	})
-
-	function peshkastep()
-	{
-		xx=
-		{
-			0:x
-		};
-		if($("img[x='"+x+"']*[y='"+y+"']").attr("position")=="down")
-		{
-			if(y==6)
-			{
-				yy=
-				{
-					0:parseInt(y)-1,
-					1:parseInt(y)-2
-				};
-			}
-			else
-			{
-				yy=
-				{
-				0:parseInt(y)-1
-				};
 			}
 		}
 		else
 		{
-			if(y==1)
+			count=0; 
+		}
+	}
+	else if(count==2)
+	{
+		var fl=false;
+		x1=$(this).attr("x");
+		y1=$(this).attr("y");
+		if($("td[x='"+x1+"']*[y='"+y1+"']").attr("bgcolor")=="#FF0000")
+		{
+			$("img[x='"+x+"']*[y='"+y+"']").appendTo("td[x='"+x1+"']*[y='"+y1+"']").attr("x",x1).attr("y",y1);
+			$("td[x='"+x+"']*[y='"+y+"']").attr("free","yes");
+			$("td[x='"+x1+"']*[y='"+y1+"']").attr("free","no");
+			color();
+			if(step[0]=="black")
 			{
-				yy=
-				{
-					0:parseInt(y)+1,
-					1:parseInt(y)+2
-				};
+				step[0]="white";
+				step[1]="black";
 			}
 			else
 			{
-				yy=
-				{
-					0:parseInt(y)+1
-				};
+				step[1]="white";
+				step[0]="black";
 			}
-		}
-		for( var i in yy)
+		}	
+		else
 		{
-			if($("td[x='"+x+"']*[y='"+yy[i]+"']").attr("free")=="yes")
-			{
-				$("td[x='"+x+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
-			}
-			else break;
+		alert("???????? ???");
+		}	
+			color();
+			count=0;
+		}
+})
+function peshkastep()
+{
+	xx={ 0:x };
+	if($("img[x='"+x+"']*[y='"+y+"']").attr("position")=="down")
+	{
+		if( y == 6 )
+		{
+		yy={ 0:parseInt(y)-1, 1:parseInt(y)-2 };
+		}
+		else
+		{
+			yy={ 0:parseInt(y)-1 };
 		}
 	}
-	
-	function ladyastep()
+	else
 	{
+		if(y==1)
+		{
+			yy={ 0:parseInt(y)+1, 1:parseInt(y)+2 };
+		}
+		else
+		{
+			yy={ 0:parseInt(y)+1 };
+		}
+	}
+	for( var i in yy)
+	{
+		if($("td[x='"+x+"']*[y='"+yy[i]+"']").attr("free")=="yes")
+		{
+			$("td[x='"+x+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
+		}
+		else break;
+	}
+}
+function ladyastep()
+{
 	var f=false;
-		for(var i=y;i>-1;i--)
+	for( var i = y; i > -1; i--)
+	{
+		if(i!=y)
 		{
-			if(i!=y)
+			if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
 			{
-				if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
-				{
-					$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
-				}
-				
-				if(f==true)break;
+				f = true;
 			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
+			{
+				$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
 		}
+	}
 	f=false;
-		for(var i=y;i<N;i++)
-		{
-			if(i!=y)
-			{
-				if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
-				{
-					$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}		
-		}
-		f=0;		
-		for(var i=x;i>-1;i--)
-		{
-			if(i!=x)
-			{
-				if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}	
-		}
-		f=0;	
-		for(var i=x;i<N;i++)
-		{
-			if(i!=x)
-			{
-				if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}			
-		}
-	}
-	function horsestep()
+	for(var i=y;i<N;i++)
 	{
-		yy=
+		if( i! = y)
 		{
-			0:parseInt(y)+1,
-			1:parseInt(y)+2,
-			2:parseInt(y)-1,
-			3:parseInt(y)-2
-		};
-		xx=
-		{
-			0:parseInt(x)+2,
-			1:parseInt(x)+1,
-			2:parseInt(x)-2,
-			3:parseInt(x)-1
-		};
-		for( var i in yy)
-		{
-			for( var j in xx)
+			if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
 			{
-				if($("img[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("color")!=$("img[x='"+x+"']*[y='"+y+"']").attr("color") &&
-				((i%2!=0 && j%2!=0)||
-				(i%2==0 && j%2==0)))
-				{
-					$("td[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
-				}
-				
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
+			{
+				$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}		
+	}
+	f=0;		
+	for(var i=x;i>-1;i--)
+	{
+		if(i!=x)
+		{
+			if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}	
+	}
+	f=0;	
+	for( var i = x; i < N; i++)
+	{
+		if(i!=x)
+		{
+			if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}			
+	}
+}
+function horsestep()
+{
+	yy=
+	{
+		0:parseInt(y)+1,
+		1:parseInt(y)+2,
+		2:parseInt(y)-1,
+		3:parseInt(y)-2
+	};
+	xx=
+	{
+		0:parseInt(x)+2,
+		1:parseInt(x)+1,
+		2:parseInt(x)-2,
+		3:parseInt(x)-1
+	};
+	for( var i in yy)
+	{
+		for( var j in xx)
+		{
+			if($("img[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("color")!=$("img[x='"+x+"']*[y='"+y+"']").attr("color") &&
+			(( i % 2 != 0 && j % 2! = 0) ||	( i % 2 == 0 && j % 2 == 0 )))
+			{
+				$("td[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
 			}
 		}
 	}
-	function ferzstep()
-	{
+}
+function ferzstep()
+{
 	var j=y;
 	var f=false;
-		for(var i=x;i<N;i++)
+		for( var i = x; i < N; i++ )
 		{
 			if(j>7)break;
 			if(i!=x && y!=j)
 			{
 				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
 				{
-						f=true;
+					f=true;
 				}
 				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
 				{
@@ -354,232 +325,232 @@ Game();
 			}
 			j++;
 		}
-		j=y;
-		var f=false;
-		for(var i=x;i>-1;i--)
-		{
-			if(j<0)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j++;
-		}
-		j=y;
-		var f=false;
-		for(var i=x;i<N;i++)
-		{
-			if(j<0)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j--;
-		}
-		j=y;
-		var f=false;
-		for(var i=x;i>-1;i--)
-		{
-			if(j>7)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j--;
-		}
-	}
-	function queenstep()
+	j=y;
+	var f=false;
+	for( var i = x ; i > -1; i--)
 	{
+		if(j<0)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j++;
+	}
+	j=y;
+	var f=false;
+	for( var i = x; i < N; i++ )
+	{
+		if(j<0)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j--;
+	}
+	j=y;
+	var f=false;
+	for( var i = x; i > -1; i-- )
+	{
+		if(j>7)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j--;
+	}
+}
+function queenstep()
+{
 	var j=y;
 	var f=false;
-		for(var i=x;i<N;i++)
-		{
-			if(j>7)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j++;
-		}
-		j=y;
-		var f=false;
-		for(var i=x;i>-1;i--)
-		{
-			if(j<0)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j++;
-		}
-		j=y;
-		var f=false;
-		for(var i=x;i<N;i++)
-		{
-			if(j<0)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j--;
-		}
-		j=y;
-		var f=false;
-		for(var i=x;i>-1;i--)
-		{
-			if(j>7)break;
-			if(i!=x && y!=j)
-			{
-				if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
-				{
-						f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-			j--;
-		}
-		f=false;
-		for(var i=y;i>-1;i--)
-		{
-			if(i!=y)
-			{
-				if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
-				{
-					$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}
-		}
-	f=false;
-		for(var i=y;i<N;i++)
-		{
-			if(i!=y)
-			{
-				if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
-				{
-					$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}		
-		}
-		f=0;		
-		for(var i=x;i>-1;i--)
-		{
-			if(i!=x)
-			{
-				if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}	
-		}
-		f=0;	
-		for(var i=x;i<N;i++)
-		{
-			if(i!=x)
-			{
-				if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
-				{
-					f=true;
-				}
-				if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
-				{
-					$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
-				}
-				if(f==true)break;
-			}			
-		}
-	}
-	function kingstep()
+	for( var i = x; i < N; i++ )
 	{
-		yy=
+		if(j>7)break;
+		if(i!=x && y!=j)
 		{
-			0:parseInt(y)+1,
-			1:parseInt(y)-1,
-			2:parseInt(y)
-		};
-		xx=
-		{
-			0:parseInt(x)+1,
-			1:parseInt(x)-1,
-			2:parseInt(x)
-		};
-		for( var i in yy)
-		{
-			for( var j in xx)
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
 			{
-				if($("img[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("color")!=$("img[x='"+x+"']*[y='"+y+"']").attr("color"))
-				{
-					$("td[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
-				}
-				
+				f=true;
 			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j++;
+	}
+	j=y;
+	var f=false;
+	for( var i = x; i > -1; i-- )
+	{
+		if(j<0)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j++;
+	}
+	j=y;
+	var f=false;
+	for( var i = x; i < N; i++ )
+	{
+		if(j<0)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j--;
+	}
+	j=y;
+	var f=false;
+	for( var i = x; i > -1; i-- )
+	{
+		if(j>7)break;
+		if(i!=x && y!=j)
+		{
+			if($("td[x='"+i+"']*[y='"+j+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+j+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+j+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}
+		j--;
+	}
+	f=false;
+	for( var i = y; i > -1; i-- )
+	{
+		if(i!=y)
+		{
+			if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
+			{
+				$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
 		}
 	}
-	
+	f=false;
+	for( var i = y; i < N; i++ )
+	{
+		if(i!=y)
+		{
+			if($("td[x='"+x+"']*[y='"+i+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+x+"']*[y='"+i+"']").attr("color"))
+			{
+				$("td[x='"+x+"']*[y='"+i+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}		
+	}
+	f=0;		
+	for( var i = x; i > -1; i-- )
+	{
+		if(i!=x)
+		{
+			if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}	
+	}
+	f=0;	
+	for(var i=x;i<N;i++)
+	{
+		if(i!=x)
+		{
+			if($("td[x='"+i+"']*[y='"+y+"']").attr("free")=="no")
+			{
+				f=true;
+			}
+			if($("img[x='"+x+"']*[y='"+y+"']").attr("color")!=$("img[x='"+i+"']*[y='"+y+"']").attr("color"))
+			{
+				$("td[x='"+i+"']*[y='"+y+"']").attr("bgcolor","#FF0000");
+			}
+			if(f==true)break;
+		}			
+	}
+}
+function kingstep()
+{
+	yy=
+	{
+		0:parseInt(y)+1,
+		1:parseInt(y)-1,
+		2:parseInt(y)
+	};
+	xx=
+	{
+		0:parseInt(x)+1,
+		1:parseInt(x)-1,
+		2:parseInt(x)
+	};
+	for( var i in yy)
+	{
+		for( var j in xx)
+		{
+			if($("img[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("color")!=$("img[x='"+x+"']*[y='"+y+"']").attr("color"))
+			{
+				$("td[x='"+xx[j]+"']*[y='"+yy[i]+"']").attr("bgcolor","#FF0000");
+			}
+				
+		}
+	}
+}
 </script>
+
